@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import HRBottomNavigation from "../../shared/HRBottomNavigation";
 import { title } from "process";
+import SuccessToast from "./Toast";
 
 interface RecognitionReviewProps {
   onBack: () => void;
@@ -27,7 +28,7 @@ const RecognitionReview: React.FC<RecognitionReviewProps> = ({
   const [shareEmail, setShareEmail] = useState(true);
   const [shareTeams, setShareTeams] = useState(true);
   const [shareLinkedIn, setShareLinkedIn] = useState(false);
-
+  const [showToast, setShowToast] = useState(false);
   const employee = {
     name: "Sarah Johnson",
     photo: "https://randomuser.me/api/portraits/women/44.jpg",
@@ -64,7 +65,8 @@ const RecognitionReview: React.FC<RecognitionReviewProps> = ({
       );
 
       if (response.ok) {
-        alert("Recognition sent to Make.com successfully!");
+        // alert("Recognition sent to Make.com successfully!");
+        setShowToast(true);
       } else {
         console.error("Make.com webhook failed:", await response.text());
       }
@@ -259,6 +261,12 @@ const RecognitionReview: React.FC<RecognitionReviewProps> = ({
         setActiveScreen={setActiveScreen}
         onVoiceAssistant={() => setShowVoiceAssistant(true)}
       />
+      {showToast && (
+        <SuccessToast
+          message="Success! Your action was completed."
+          onClose={() => setShowToast(false)}
+        />
+      )}
     </div>
   );
 };
