@@ -46,7 +46,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onNext, onHRLogin }) => {
         <div className="flex justify-center mb-6">
           <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center animate-float shadow-sm">
             <img
-              src="public\logo.jpg"
+              src="https://i.pinimg.com/736x/98/19/07/981907dd062aecce6e9c61d51c729f72.jpg"
               alt="AIday logo"
               className="w-32 h-32 object-contain"
             />
